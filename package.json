@@ -1,0 +1,46 @@
+{
+  "name": "explain-cli",
+  "version": "1.0.0",
+  "description": "Translate source code into plain-English explanations, with caching.",
+  "type": "module",
+  "bin": {
+    "explain": "dist/index.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "dev": "tsx src/index.ts",
+    "build": "tsup src/index.ts --format esm --target node18 --clean --external better-sqlite3",
+    "start": "node dist/index.js",
+    "typecheck": "tsc --noEmit",
+    "grammars": "node scripts/copy-grammars.mjs",
+    "postinstall": "node scripts/copy-grammars.mjs"
+  },
+  "keywords": [
+    "cli",
+    "code",
+    "explain",
+    "documentation"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.104.1",
+    "better-sqlite3": "^12.10.1",
+    "commander": "^12.1.0",
+    "dotenv": "^16.4.5",
+    "tree-sitter-python": "^0.25.0",
+    "tree-sitter-typescript": "^0.23.2",
+    "web-tree-sitter": "^0.26.9"
+  },
+  "devDependencies": {
+    "@types/better-sqlite3": "^7.6.13",
+    "@types/node": "^22.7.4",
+    "tsup": "^8.3.0",
+    "tsx": "^4.19.1",
+    "typescript": "^5.6.2"
+  }
+}
