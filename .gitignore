@@ -10,6 +10,8 @@ grammars/
 # Environment / secrets
 .env
 .env.local
+.env.prod
+.env.development
 
 # OS junk
 .DS_Store
